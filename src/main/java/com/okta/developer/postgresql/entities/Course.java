@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Course extends EntityWithUUID {
 
   private String name;
@@ -22,11 +23,4 @@ public class Course extends EntityWithUUID {
   @ManyToOne
   @JoinColumn(foreignKey = @ForeignKey(name = "fk_course_teacher"))
   private Teacher teacher;
-
-  @Builder
-  public Course(String name, int workload, short rate) {
-    this.name = name;
-    this.workload = workload;
-    this.rate = rate;
-  }
 }

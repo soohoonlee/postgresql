@@ -1,14 +1,26 @@
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/coursedb
-    username: root
+    username: postgres
     password: password
   jpa:
     properties:
       hibernate:
+        format_sql: true
         dialect: org.hibernate.dialect.PostgreSQLDialect
         jdbc:
           lob:
             non_contextual_creation: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: validate
+    show-sql: true
+logging:
+  level:
+    org:
+      hibernate:
+        sql: debug
+        type: trace
+okta:
+  oauth2:
+    issuer: https://dev-461632.okta.com/oauth2/default
+    client-id:
